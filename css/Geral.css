@@ -10,27 +10,69 @@ body {
     border: 3px solid #5e6b78
 }
 
-.topo {
-    border: 3px solid #5e6b78;
+.menu {
+    border: 5px solid #5e6b78;
+    text-align: center;
+    padding: auto;
+    display: flex;
+}
+
+.botao-1,
+.botao-2,
+.botao-3,
+.botao-4,
+.botao-5 {
+    flex: 1;
+    border: 5px solid #5e6b78;
     text-align: center;
     padding: 20px;
+}
+
+.link-home,
+.link-empresas,
+.link-servicos,
+.link-contatos,
+.link-fale {
+    width: 100px;
+}
+
+.livro-1,
+.livro-2,
+.livro-3,
+.livro-4,
+.livro-5 {
+    width: 200px;
+}
+
+
+.topo {
+    border: 5px solid #5e6b78;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
 }
 
 .ladolado {
     display: flex;
     justify-content: space-between;
-    height: 1000px;
+    height: 500px;
 }
 
 .esquerda {
+    /* dentro de ladolado */
     border: 5px solid #5e6b78;
     text-align: center;
     padding: 20px;
     flex: 1;
 }
 
+.autor-img {
+    width: 100%;
+    max-width: 200px;
+}
 
 .centro {
+    /* dentro de ladolado */
     border: 3px solid #5e6b78;
     text-align: center;
     padding: 20px;
@@ -38,6 +80,7 @@ body {
 }
 
 .direita {
+    /* dentro de ladolado */
     border: 3px solid #5e6b78;
     text-align: center;
     padding: 20px;
@@ -45,7 +88,7 @@ body {
 }
 
 .rodape {
-    border: 3px solid #5e6b78;
+    border: 5px solid #5e6b78;
     text-align: center;
     padding: 20px;
 }
