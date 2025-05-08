@@ -92,3 +92,44 @@ body {
     text-align: center;
     padding: 20px;
 }
+
+
+.a0 {
+    display: flex;
+}
+
+.a1,
+.a3 {
+    flex: 0 0 100px;
+    border: 3px solid #5e6b78;
+    text-align: center;
+    padding: 20px;
+    width: 50px;
+}
+
+.a1 {
+    display: flex;
+}
+
+.a2 {
+    flex: 2;
+}
+
+.a2-1,
+.a2-2,
+.a2-3 {
+    border: 3px solid #5e6b78;
+    text-align: center;
+}
+
+.a2-1 {
+    height: 250px;
+}
+
+.a2-2 {
+    height: 1000px;
+}
+
+.a1-1 {
+    display: flex;
+}
