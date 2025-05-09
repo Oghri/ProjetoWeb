@@ -1,5 +1,5 @@
 html {
-    background-color: #708090;
+    background-color: #5e6b78;
 }
 
 body {
@@ -10,126 +10,114 @@ body {
     border: 3px solid #5e6b78
 }
 
-.menu {
-    border: 5px solid #5e6b78;
-    text-align: center;
-    padding: auto;
+/*SOBRE A PÁGINA INDEX*/
+
+.lado {
     display: flex;
 }
 
-.botao-1,
-.botao-2,
-.botao-3,
-.botao-4,
-.botao-5 {
-    flex: 1;
-    border: 5px solid #5e6b78;
+.esquerda,
+.direita {
+    border: 3px solid #5e6b78;
     text-align: center;
     padding: 20px;
-}
-
-.link-home,
-.link-empresas,
-.link-servicos,
-.link-contatos,
-.link-fale {
-    width: 100px;
-}
-
-.livro-1,
-.livro-2,
-.livro-3,
-.livro-4,
-.livro-5 {
-    width: 200px;
-}
-
-
-.topo {
-    border: 5px solid #5e6b78;
-    text-align: center;
-    padding: 20px;
-    text-decoration: none;
-}
-
-.ladolado {
-    display: flex;
-    justify-content: space-between;
-    height: 500px;
-}
-
-.esquerda {
-    /* dentro de ladolado */
-    border: 5px solid #5e6b78;
-    text-align: center;
-    padding: 20px;
-    flex: 1;
-}
-
-.autor-img {
     width: 100%;
     max-width: 200px;
 }
 
+.esquerda {
+    width: auto;
+    max-width: 200px;
+}
+
+.menu {
+    padding: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 800px;
+}
+
 .centro {
-    /* dentro de ladolado */
-    border: 3px solid #5e6b78;
-    text-align: center;
-    padding: 20px;
     flex: 2;
 }
 
-.direita {
-    /* dentro de ladolado */
-    border: 3px solid #5e6b78;
-    text-align: center;
-    padding: 20px;
-    flex: 1;
-}
-
+.topo,
+.corpo,
 .rodape {
-    border: 5px solid #5e6b78;
-    text-align: center;
-    padding: 20px;
-}
-
-
-.a0 {
-    display: flex;
-}
-
-.a1,
-.a3 {
-    flex: 0 0 100px;
     border: 3px solid #5e6b78;
     text-align: center;
     padding: 20px;
-    width: 50px;
 }
 
-.a1 {
+.topo {
+    height: 300px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
-.a2 {
-    flex: 2;
+.logo {
+    width: 250px;
 }
 
-.a2-1,
-.a2-2,
-.a2-3 {
-    border: 3px solid #5e6b78;
-    text-align: center;
+.nomeblog {
+    font-size: 200px;
 }
 
-.a2-1 {
-    height: 250px;
-}
-
-.a2-2 {
+.corpo {
     height: 1000px;
+    padding: 100px;
+    height: auto;
 }
 
-.a1-1 {
+.corpo h1 {
+    font-size: 50px;
+}
+
+.bloginicio p {
+    font-size: 50px;
+    text-align: justify;
+}
+
+.rodape p {
+    font-size: 50px;
+}
+
+/*SOBRE A PÁGINA TODOS OS POSTS*/
+
+.ToP-corpo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 100px;
+    margin: auto;
+    border: 3px solid #5e6b78;
+    text-align: center;
+    align-items: center;
+}
+
+.Coraline,
+.Mochileiros,
+.RevBicho,
+.Cafe,
+.CodDaVinci,
+.NaoDefinido {
+    border: 3px solid #5e6b78;
+    margin: 200px;
     display: flex;
+    font-size: 40px;
+
+}
+
+.nomepag {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.ToP-titulo {
+    font-size: 150px;
 }
