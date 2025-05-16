@@ -1,88 +1,139 @@
-html {
-    background-color: #5e6b78;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: #708090;
-    width: auto;
-    margin: 0 auto;
-    padding: 0 20px 20px 20px;
-    border: 3px solid #5e6b78
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding-top: 70px;
+    background-color: #f5f5f5;
 }
 
 /*SOBRE A PÁGINA INDEX*/
+/*BASE*/
 
-.lado {
-    display: flex;
-}
-
-.esquerda,
-.direita {
-    border: 3px solid #5e6b78;
-    text-align: center;
-    padding: 20px;
+.topo-fixo {
+    position: fixed;
+    top: 0;
     width: 100%;
-    max-width: 200px;
-}
-
-.esquerda {
-    width: auto;
-    max-width: 200px;
-}
-
-.menu {
-    padding: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 800px;
-}
-
-.centro {
-    flex: 2;
-}
-
-.topo,
-.corpo,
-.rodape {
-    border: 3px solid #5e6b78;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
     text-align: center;
-    padding: 20px;
+    z-index: 1000;
 }
 
-.topo {
-    height: 300px;
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 40px 0px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 20px;
+    background-color: #eaeaea;
+}
+
+.conteudo-principal {
+    flex: 7;
     padding: 20px;
+    border-radius: 8px;
 }
 
-.logo {
-    width: 250px;
+.conteudo-lateral {
+    flex: 3;
+    background-color: #eaeaea;
+    padding: 20px;
+    border-radius: 8px;
 }
 
-.nomeblog {
-    font-size: 200px;
+
+/*SOBRE A PÁGINA INDEX*/
+/*ESPECÍFICO*/
+
+.ultimopost {
+    background-color: #f5f5f5;
+    margin: 40px 40px;
+    padding: 40px;
 }
 
-.corpo {
-    height: 1000px;
-    padding: 100px;
-    height: auto;
+.inf-ultimopost {
+    text-align: center;
 }
 
-.corpo h1 {
-    font-size: 50px;
+.previa {
+    margin: 40px 40px;
 }
 
-.bloginicio p {
-    font-size: 50px;
+.previa p {
+    margin: 20px 0px;
+    font-size: 25px;
     text-align: justify;
 }
 
-.rodape p {
-    font-size: 50px;
+.previa button {
+    background-color: #f5f5f5;
+    color: #2c3e50;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: auto;
+}
+
+.previa button:hover {
+    background-color: #2c3e50;
+    color: #f5f5f5;
+}
+
+.sugestoes {
+    background-color: #f5f5f5;
+    margin: 40px 40px;
+    padding: 40px;
+}
+
+.inf-sugestao {
+    text-align: center;
+}
+
+.sugestao {
+    margin: 40px 40px;
+}
+
+.sugestao p {
+    margin: 20px 0px;
+    font-size: 25px;
+    text-align: justify;
+}
+
+.sugestao button {
+    background-color: #f5f5f5;
+    color: #2c3e50;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: auto;
+}
+
+.sugestao button:hover {
+    background-color: #2c3e50;
+    color: #f5f5f5;
+}
+
+/*ESPECIFICAÇÕES AUTOR*/
+
+.autor {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 40px;
+}
+
+.img-autor {
+    width: 250px;
+    border-radius: 100%;
 }
 
 /*SOBRE A PÁGINA TODOS OS POSTS*/
