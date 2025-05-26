@@ -131,6 +131,14 @@ body {
     padding: 40px;
 }
 
+.autor h1 {
+    font-size: 50px;
+}
+
+.autor p {
+    font-size: 30px;
+}
+
 .img-autor {
     width: 250px;
     border-radius: 100%;
@@ -171,4 +179,139 @@ body {
 
 .ToP-titulo {
     font-size: 150px;
+}
+
+.conteudo-lateral {
+    padding: 55px;
+}
+
+/*Menu fixo*/
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu li a {
+    display: block;
+    padding: 14px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.menu li a:hover {
+    background-color: #eaeaea;
+    color: #2c3e50;
+}
+
+/*Para a página FALE*/
+
+.container-fale {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 40px 0px;
+    gap: 20px;
+    background-color: #ececec;
+    justify-content: center;
+    text-align: center;
+}
+
+.texto-form {
+    padding: 40px;
+    text-align: center;
+    width: 1000px;
+    margin: 40px auto;
+}
+
+.texto-form p {
+    font-size: 50px;
+}
+
+.formulario-contato {
+    background-color: #f5f5f5;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 8px;
+    width: 50%;
+    border-radius: 5%;
+}
+
+.formulario-contato h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 30px;
+}
+
+.formulario-contato label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 25px;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    border: 1px solid #5e6b78;
+    border-radius: 4px;
+    background-color: #eaeaea;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+}
+
+.formulario-contato button {
+    background-color: #f5f5f5;
+    color: #2c3e50;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #2c3e50;
+    border-radius: 4px;
+}
+
+.formulario-contato button:hover {
+    background-color: #2c3e50;
+    color: #f5f5f5;
+}
+
+/*Página Sobre o Blog*/
+
+.sobre-blog {
+    background-color: #f5f5f5;
+    text-align: center;
+    padding: 60px;
+    margin: 40px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+}
+
+.sobre-blog h1 {
+    font-size: 60px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.sobre-blog p {
+    font-size: 25px;
+    margin: 20px 0;
+    line-height: 1.8;
+    text-align: justify;
 }
