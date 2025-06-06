@@ -13,9 +13,9 @@
             <nav>
                 <ul class="menu">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="BLOGS.html">Todos os Blogs</a></li>
+                    <li><a href="BLOGS.html">Resenhas</a></li>
                     <li><a href="PROJETO.html">Sobre o projeto</a></li>
-                    <li><a href="SOBRE.html">Sobre o blog</a></li>
+                    <li><a href="SOBRE.html">Sobre o site</a></li>
                     <li><a href="FALE.html">Fale conosco</a></li>
                 </ul>
             </nav>
@@ -25,7 +25,7 @@
     <main class="container-fale">
         <div class="texto-form">
             <p>
-                Deixe seu comentário e/ou sugestão de livros para o blog preenchendo o fomulário abaixo
+                Deixe seu comentário e/ou sugestão de livros para o blog preenchendo o formulário abaixo
             </p>
         </div>
         <div class="formulario-contato">
@@ -35,7 +35,7 @@
                 <input type="text" id="nome" name="nome">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <input type="text" id="email" name="email">
 
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone">
@@ -57,17 +57,22 @@
                 const telefone = document.getElementById('telefone').value.trim();
                 const mensagem = document.getElementById('mensagem').value.trim();
 
-                // Validação
                 if (!nome || !email || !telefone || !mensagem) {
                     alert('Por favor, preencha todos os campos.');
                     return;
                 }
 
-                // Aqui poderia enviar os dados via AJAX
+                const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                if (!emailValido) {
+                    alert('Por favor, insira um e-mail válido.');
+                    return;
+                }
+
                 alert('Mensagem enviada com sucesso!');
                 document.getElementById('contatoForm').reset();
             });
         </script>
+
     </main>
 </body>
 
