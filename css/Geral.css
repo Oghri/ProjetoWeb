@@ -12,7 +12,6 @@ body {
 }
 
 /*SOBRE A PÁGINA INDEX*/
-/*BASE*/
 
 .topo-fixo {
     position: fixed;
@@ -67,6 +66,68 @@ main.tudo {
     padding: 20px;
     border-radius: 8px;
 }
+
+/* 🔽 MEDIA QUERY PARA CELULARES */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nome-site {
+        flex-direction: column;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+    }
+
+    .conteudo-principal,
+    .conteudo-lateral {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .topo-fixo {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .menu li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .previa p {
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
 
 
 /*SOBRE A PÁGINA INDEX*/

@@ -6,6 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>ProjetoWeb</title>
+
+    <!-- SDK do EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("X0uZGtGKJFK264dM4"); // Public key
+        })();
+    </script>
 </head>
 
 <body>
@@ -33,38 +41,32 @@
             <h2>Entre em Contato</h2>
             <form id="contatoForm">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome">
+                <input type="text" id="nome" name="nome" required>
 
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" required>
 
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11 912345678" required>
 
                 <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5"></textarea>
+                <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
                 <button type="submit">Enviar</button>
             </form>
         </div>
 
         <script>
+            // Máscara simples para o telefone
             const telefoneInput = document.getElementById('telefone');
-
             telefoneInput.addEventListener('input', function () {
-                let valor = telefoneInput.value.replace(/\D/g, ''); // Remove não números
-
-                if (valor.length > 11) {
-                    valor = valor.slice(0, 11); // Limita a 11 dígitos
-                }
-
-                if (valor.length > 2) {
-                    valor = valor.slice(0, 2) + ' ' + valor.slice(2); // Adiciona espaço após DDD
-                }
-
+                let valor = telefoneInput.value.replace(/\D/g, '');
+                if (valor.length > 11) valor = valor.slice(0, 11);
+                if (valor.length > 2) valor = valor.slice(0, 2) + ' ' + valor.slice(2);
                 telefoneInput.value = valor;
             });
 
+            // Envio do formulário
             document.getElementById('contatoForm').addEventListener('submit', function (event) {
                 event.preventDefault();
 
@@ -73,13 +75,13 @@
                 const telefone = document.getElementById('telefone').value.trim();
                 const mensagem = document.getElementById('mensagem').value.trim();
 
+                const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone);
+
                 if (!nome || !email || !telefone || !mensagem) {
                     alert('Por favor, preencha todos os campos.');
                     return;
                 }
-
-                const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-                const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone); // Ex: 11 912345678
 
                 if (!emailValido) {
                     alert('Por favor, insira um e-mail válido.');
@@ -91,8 +93,14 @@
                     return;
                 }
 
-                alert('Mensagem enviada com sucesso!');
-                document.getElementById('contatoForm').reset();
+                emailjs.sendForm('Sobre_livros2025', 'Livros_sobre2025', this)
+                    .then(function () {
+                        alert('Mensagem enviada com sucesso!');
+                        document.getElementById('contatoForm').reset();
+                    }, function (error) {
+                        console.error('Erro:', error);
+                        alert('Ocorreu um erro ao enviar. Tente novamente.');
+                    });
             });
         </script>
     </main>
