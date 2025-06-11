@@ -3,9 +3,10 @@
 
 <head>
     <link href="css/Geral.css" rel="stylesheet" />
-    <meta charset="UTF=8">
-    <meta name="Viewport" content="width=device-width, initial-scale=0.8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>ProjetoWeb</title>
+</head>
 
 <body>
     <header class="topo-fixo">
@@ -38,7 +39,7 @@
                 <input type="text" id="email" name="email">
 
                 <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="telefone">
+                <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11 912345678" required>
 
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" rows="5"></textarea>
@@ -48,10 +49,25 @@
         </div>
 
         <script>
-            document.getElementById('contatoForm').addEventListener('submit', function (event) {
-                event.preventDefault(); // Evita envio automático
+            const telefoneInput = document.getElementById('telefone');
 
-                // Coletando valores
+            telefoneInput.addEventListener('input', function () {
+                let valor = telefoneInput.value.replace(/\D/g, ''); // Remove não números
+
+                if (valor.length > 11) {
+                    valor = valor.slice(0, 11); // Limita a 11 dígitos
+                }
+
+                if (valor.length > 2) {
+                    valor = valor.slice(0, 2) + ' ' + valor.slice(2); // Adiciona espaço após DDD
+                }
+
+                telefoneInput.value = valor;
+            });
+
+            document.getElementById('contatoForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
                 const nome = document.getElementById('nome').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const telefone = document.getElementById('telefone').value.trim();
@@ -63,8 +79,15 @@
                 }
 
                 const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone); // Ex: 11 912345678
+
                 if (!emailValido) {
                     alert('Por favor, insira um e-mail válido.');
+                    return;
+                }
+
+                if (!telefoneValido) {
+                    alert('Por favor, insira o telefone no formato: 11 912345678');
                     return;
                 }
 
@@ -72,10 +95,7 @@
                 document.getElementById('contatoForm').reset();
             });
         </script>
-
     </main>
 </body>
-
-</head>
 
 </html>
