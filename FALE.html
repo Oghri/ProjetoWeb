@@ -60,55 +60,7 @@
         </div>
     </main>
 
-    <script>
-        // Máscara simples para telefone (formato: 11 912345678)
-        const telefoneInput = document.getElementById('telefone');
-        telefoneInput.addEventListener('input', function () {
-            let valor = telefoneInput.value.replace(/\D/g, '');
-            if (valor.length > 11) valor = valor.slice(0, 11);
-            if (valor.length > 2) valor = valor.slice(0, 2) + ' ' + valor.slice(2);
-            telefoneInput.value = valor;
-        });
-
-        // Envio do formulário com validações
-        const form = document.getElementById('contatoForm');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefone = document.getElementById('telefone').value.trim();
-            const mensagem = document.getElementById('mensagem').value.trim();
-
-            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone);
-
-            if (!nome || !email || !telefone || !mensagem) {
-                alert('Por favor, preencha todos os campos.');
-                return;
-            }
-
-            if (!emailValido) {
-                alert('Por favor, insira um e-mail válido.');
-                return;
-            }
-
-            if (!telefoneValido) {
-                alert('Por favor, insira o telefone no formato: 11 912345678');
-                return;
-            }
-
-            // Envio usando EmailJS
-            emailjs.sendForm('Sobre_livros2025', 'Livros_sobre2025', form)
-                .then(function () {
-                    alert('Mensagem enviada com sucesso!');
-                    form.reset();
-                }, function (error) {
-                    console.error('Erro:', error);
-                    alert('Ocorreu um erro ao enviar. Tente novamente.');
-                });
-        });
-    </script>
+    
 </body>
 
 </html>
