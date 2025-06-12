@@ -2,16 +2,15 @@
 <html lang="pt-BR">
 
 <head>
-    <link href="css/Geral.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
     <title>ProjetoWeb</title>
+    <link href="css/Geral.css" rel="stylesheet" />
 
-    <!-- SDK do EmailJS -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         (function () {
-            emailjs.init("X0uZGtGKJFK264dM4"); // Public key
+            emailjs.init("X0uZGtGKJFK264dM4");
         })();
     </script>
 </head>
@@ -21,7 +20,7 @@
         <div class="div-menu">
             <nav>
                 <ul class="menu">
-                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="index.html">Início</a></li>
                     <li><a href="BLOGS.html">Resenhas</a></li>
                     <li><a href="PROJETO.html">Sobre o projeto</a></li>
                     <li><a href="SOBRE.html">Sobre o site</a></li>
@@ -34,76 +33,80 @@
     <main class="container-fale">
         <div class="texto-form">
             <p>
-                Deixe seu comentário e/ou sugestão de livros para o blog preenchendo o formulário abaixo
+                Deixe seu comentário e/ou sugestão de livros para o blog preenchendo o formulário abaixo:
             </p>
         </div>
+
         <div class="formulario-contato">
             <h2>Entre em Contato</h2>
             <form id="contatoForm">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
+                <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
 
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
 
                 <label for="telefone">Telefone:</label>
-                <input type="tel" id="telefone" name="telefone" placeholder="Ex: 11 912345678" required>
+                <input type="tel" id="telefone" name="telefone" placeholder="11 912345678" required>
 
                 <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..."
+                    required></textarea>
 
                 <button type="submit">Enviar</button>
             </form>
         </div>
-
-        <script>
-            // Máscara simples para o telefone
-            const telefoneInput = document.getElementById('telefone');
-            telefoneInput.addEventListener('input', function () {
-                let valor = telefoneInput.value.replace(/\D/g, '');
-                if (valor.length > 11) valor = valor.slice(0, 11);
-                if (valor.length > 2) valor = valor.slice(0, 2) + ' ' + valor.slice(2);
-                telefoneInput.value = valor;
-            });
-
-            // Envio do formulário
-            document.getElementById('contatoForm').addEventListener('submit', function (event) {
-                event.preventDefault();
-
-                const nome = document.getElementById('nome').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const telefone = document.getElementById('telefone').value.trim();
-                const mensagem = document.getElementById('mensagem').value.trim();
-
-                const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-                const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone);
-
-                if (!nome || !email || !telefone || !mensagem) {
-                    alert('Por favor, preencha todos os campos.');
-                    return;
-                }
-
-                if (!emailValido) {
-                    alert('Por favor, insira um e-mail válido.');
-                    return;
-                }
-
-                if (!telefoneValido) {
-                    alert('Por favor, insira o telefone no formato: 11 912345678');
-                    return;
-                }
-
-                emailjs.sendForm('Sobre_livros2025', 'Livros_sobre2025', this)
-                    .then(function () {
-                        alert('Mensagem enviada com sucesso!');
-                        document.getElementById('contatoForm').reset();
-                    }, function (error) {
-                        console.error('Erro:', error);
-                        alert('Ocorreu um erro ao enviar. Tente novamente.');
-                    });
-            });
-        </script>
     </main>
+
+    <script>
+        // Máscara simples para telefone (formato: 11 912345678)
+        const telefoneInput = document.getElementById('telefone');
+        telefoneInput.addEventListener('input', function () {
+            let valor = telefoneInput.value.replace(/\D/g, '');
+            if (valor.length > 11) valor = valor.slice(0, 11);
+            if (valor.length > 2) valor = valor.slice(0, 2) + ' ' + valor.slice(2);
+            telefoneInput.value = valor;
+        });
+
+        // Envio do formulário com validações
+        const form = document.getElementById('contatoForm');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone);
+
+            if (!nome || !email || !telefone || !mensagem) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            if (!emailValido) {
+                alert('Por favor, insira um e-mail válido.');
+                return;
+            }
+
+            if (!telefoneValido) {
+                alert('Por favor, insira o telefone no formato: 11 912345678');
+                return;
+            }
+
+            // Envio usando EmailJS
+            emailjs.sendForm('Sobre_livros2025', 'Livros_sobre2025', form)
+                .then(function () {
+                    alert('Mensagem enviada com sucesso!');
+                    form.reset();
+                }, function (error) {
+                    console.error('Erro:', error);
+                    alert('Ocorreu um erro ao enviar. Tente novamente.');
+                });
+        });
+    </script>
 </body>
 
 </html>
