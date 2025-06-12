@@ -12,6 +12,7 @@
         (function () {
             emailjs.init("X0uZGtGKJFK264dM4");
         })();
+    </script>
 </head>
 
 <body>
@@ -52,6 +53,7 @@
             </form>
         </div>
     </main>
+
     <script>
         // Máscara simples para telefone (formato: 11 912345678)
         const telefoneInput = document.getElementById('telefone');
@@ -96,12 +98,11 @@
                     alert('Mensagem enviada com sucesso!');
                     form.reset();
                 }, function (error) {
-                    console.error('Erro:', error);More actions
+                    console.error('Erro:', error);
                     alert('Ocorreu um erro ao enviar. Tente novamente.');
                 });
         });
     </script>
-    
 </body>
 
 </html>
