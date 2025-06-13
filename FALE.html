@@ -19,8 +19,12 @@
     <header class="topo-fixo">
         <div class="div-menu">
             <nav>
-                <ul class="menu">
+                <ul class="menu-fale">
                     <li><a href="index.html">Inicio</a></li>
+                    <li class="some"><a href="BLOGS.html">Resenhas</a></li>
+                    <li class="some"><a href="PROJETO.html">Sobre o projeto</a></li>
+                    <li class="some"><a href="SOBRE.html">Sobre o site</a></li>
+                    <li class="some"><a href="FALE.html">Fale conosco</a></li>
                 </ul>
             </nav>
         </div>
@@ -40,14 +44,13 @@
                 <input type="text" id="nome" name="nome" placeholder="Nome completo">
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                <input type="text" id="email" name="email" placeholder="exemplo@email.com">
 
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="11 912345678">
 
                 <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..."
-                    required></textarea>
+                <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem aqui..."></textarea>
 
                 <button type="submit">Enviar</button>
             </form>
@@ -70,11 +73,14 @@
             event.preventDefault();
 
             const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
             const telefone = document.getElementById('telefone').value.trim();
             const mensagem = document.getElementById('mensagem').value.trim();
 
-            const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            
+            const email = document.getElementById('email').value.trim();
+    
+            
+
             const telefoneValido = /^\d{2} \d{8,9}$/.test(telefone);
 
             if (!nome || !email || !telefone || !mensagem) {
@@ -82,8 +88,8 @@
                 return;
             }
 
-            if (!emailValido) {
-                alert('Por favor, insira um e-mail válido.');
+            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert('Por favor, insira um e-mail válido (exemplo: exemplo@email.com)');
                 return;
             }
 
