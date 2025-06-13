@@ -543,7 +543,8 @@ main.tudo {
     overflow-wrap: break-word;
     line-height: 1.6;
     color: #333;
-    font-size: 1.1em;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .info-livro {
@@ -592,5 +593,14 @@ main.tudo {
 
     .info-livro img {
         width: 150px;
+    }
+
+    .modelo-blogs {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .modelo-blogs p {
+        font-size: 20px;
     }
 }
